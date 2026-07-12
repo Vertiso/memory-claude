@@ -1,6 +1,6 @@
 ---
 name: checkpoint
-description: Save work-in-progress to Vertiso Memory without ending the session — a richer, resume-critical snapshot than a handoff, captured mid-stream, that preserves the session's decisions and their whys verbatim across every topic it touched. Two modes: routine (periodic "it's been a while since I saved" — sweeps the whole span) and salient (immediate "don't want to forget this — this matters"). The shared capture engine that handoff and wrap-up delegate their state-assembly to. Use when the user or agent says checkpoint / save progress / capture this / don't forget this, or on a cadence nudge.
+description: "Save work-in-progress to Vertiso Memory without ending the session — a richer, resume-critical snapshot than a handoff, captured mid-stream, that preserves the session's decisions and their whys verbatim across every topic it touched. Two modes: routine (periodic \"it's been a while since I saved\" — sweeps the whole span) and salient (immediate \"don't want to forget this — this matters\"). The shared capture engine that handoff and wrap-up delegate their state-assembly to. Use when the user or agent says checkpoint / save progress / capture this / don't forget this, or on a cadence nudge."
 ---
 
 # Checkpoint
