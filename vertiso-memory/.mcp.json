@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "vertiso-memory": {
+      "type": "http",
+      "url": "https://memory.vertiso.ai/mcp"
+    }
+  }
+}

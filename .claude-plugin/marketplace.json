@@ -1,0 +1,27 @@
+{
+  "name": "vertiso",
+  "owner": {
+    "name": "Vertiso Corporation",
+    "email": "support@vertiso.ai",
+    "url": "https://memory.vertiso.ai"
+  },
+  "metadata": {
+    "description": "Vertiso plugin marketplace for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "vertiso-memory",
+      "source": "./vertiso-memory",
+      "description": "Portable, user-owned memory for Claude Code: durable recall and hybrid search, cross-session handoffs and checkpoints, through a remote OAuth MCP server, with the vmem session skills bundled.",
+      "category": "productivity",
+      "keywords": [
+        "memory",
+        "mcp",
+        "oauth",
+        "handoff",
+        "checkpoint",
+        "skills"
+      ]
+    }
+  ]
+}
