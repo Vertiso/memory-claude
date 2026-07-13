@@ -1,8 +1,8 @@
 {
   "name": "vertiso-memory",
   "displayName": "Vertiso Memory",
-  "version": "0.2.1",
-  "description": "Portable, user-owned memory for Claude Code. Durable recall, hybrid search, and cross-session handoffs and checkpoints via a remote OAuth MCP server, with the vmem session skills bundled.",
+  "version": "1.0.0",
+  "description": "Portable, user-owned memory for Claude Code. Durable recall, hybrid search, and cross-session handoffs and checkpoints via a remote OAuth MCP server, with the vmem session skills bundled. Available worldwide except where prohibited by applicable law or unsupported by our service providers.",
   "author": {
     "name": "Vertiso Corporation",
     "email": "support@vertiso.ai",

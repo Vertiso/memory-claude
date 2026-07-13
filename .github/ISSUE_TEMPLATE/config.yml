@@ -1,0 +1,7 @@
+# Copyright © 2026. Copyright Vertiso Corporation, all rights reserved.
+
+blank_issues_enabled: false
+contact_links:
+  - name: Vertiso Memory support
+    url: https://memory.vertiso.ai/support
+    about: Get help with accounts, OAuth, deletion, billing, and general usage.

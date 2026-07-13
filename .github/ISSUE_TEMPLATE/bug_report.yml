@@ -1,0 +1,53 @@
+# Copyright © 2026. Copyright Vertiso Corporation, all rights reserved.
+
+name: Bug report
+description: Report a reproducible problem with the Vertiso Memory plugin.
+title: "[Bug]: "
+labels:
+  - "bug"
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Do not include tokens, credentials, private memory content, or security
+        vulnerabilities. Use the private security-reporting route for security
+        issues and the support page for account-specific help.
+  - type: dropdown
+    id: client
+    attributes:
+      label: Client
+      options:
+        - Claude Code
+        - Cursor
+        - Codex
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: plugin_version
+    attributes:
+      label: Plugin version
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the expected and observed behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Provide the smallest safe reproduction without private data.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs
+      description: Optional. Remove tokens, identifiers, and memory content.
+    validations:
+      required: false

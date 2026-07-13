@@ -5,9 +5,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "command -v vmem >/dev/null 2>&1 && vmem hello --source agent:claude-code --name 'Claude Code' || true",
-            "timeout": 10,
-            "statusMessage": "Greeting Vertiso Memory..."
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/session_start.sh\"",
+            "timeout": 10
           }
         ]
       }

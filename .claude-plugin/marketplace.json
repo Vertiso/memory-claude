@@ -12,7 +12,7 @@
     {
       "name": "vertiso-memory",
       "source": "./vertiso-memory",
-      "description": "Portable, user-owned memory for Claude Code: durable recall and hybrid search, cross-session handoffs and checkpoints, through a remote OAuth MCP server, with the vmem session skills bundled.",
+      "description": "Portable, user-owned memory for Claude Code: durable recall and hybrid search, cross-session handoffs and checkpoints, through a remote OAuth MCP server, with the vmem session skills bundled. Available worldwide except where prohibited by applicable law or unsupported by our service providers.",
       "category": "productivity",
       "keywords": [
         "memory",
