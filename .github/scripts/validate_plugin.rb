@@ -1,6 +1,11 @@
 # Copyright © 2026. Copyright Vertiso Corporation, all rights reserved.
 
 require "json"
+# Explicit require: Pathname ships with the interpreter on Ruby >= 4.0
+# but is require-gated on the older system Rubies the public plugin
+# repos' CI runs (ubuntu-latest, Ruby 3.2). The cop reads this repo's
+# TargetRubyVersion and calls it redundant; it is not, downstream.
+require "pathname" # rubocop:disable Lint/RedundantRequireStatement
 require "yaml"
 
 require_relative "cursor_schema_validator"
