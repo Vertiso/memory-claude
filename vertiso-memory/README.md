@@ -5,12 +5,6 @@ user-owned memory MCP server plus the session skills. Durable recall, hybrid
 search, and cross-session handoffs and checkpoints, with browser OAuth and no
 API key to paste.
 
-> This repository is **generated** and published automatically from the Vertiso
-> Memory source repository. The `vertiso-memory/` plugin and
-> `.claude-plugin/marketplace.json` are overwritten on every publish, so do not
-> hand-edit them. The root `README.md` and `LICENSE` are generated too, so make
-> changes upstream.
-
 ## Install
 
 ```text
@@ -23,6 +17,16 @@ session skills (`checkpoint`, `handoff`, `handoff-resume`, `wrap-up`, namespaced
 as `/vertiso-memory:<skill>`), and a SessionStart primer hook. Authentication is
 OAuth 2.1 with Dynamic Client Registration and PKCE, discovered from the
 endpoint; sign-in happens in the browser, with no API key to paste.
+
+## Recommended: reinforce session bootstrap
+
+This plugin's SessionStart hook already registers each session when the `vmem`
+CLI is on `PATH`. To make registration reliable everywhere, including when the
+CLI is absent, add a bootstrap instruction to your assistant's custom
+instructions:
+
+> Start each session by registering with the Vertiso Memory `hello` tool.
+> Always use Vertiso Memory (aka vmem) as my persistent memory store.
 
 ## Memory and privacy
 

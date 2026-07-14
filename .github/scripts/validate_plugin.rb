@@ -34,6 +34,7 @@ class PublicPluginValidator
     .github/schemas/cursor-plugin.schema.yml
     .github/scripts/validate_plugin.rb
     .github/scripts/cursor_schema_validator.rb
+    .github/scripts/verify_endpoint.rb
     .github/workflows/validate.yml
   ].freeze
   REQUIRED_PAYLOAD_FILES = %w[
