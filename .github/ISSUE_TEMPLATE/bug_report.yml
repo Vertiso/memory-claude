@@ -20,6 +20,8 @@ body:
         - Claude Code
         - Cursor
         - Codex
+        - VS Code & GitHub Copilot
+        - JetBrains IDEs
         - Other
     validations:
       required: true
