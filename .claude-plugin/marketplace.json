@@ -6,13 +6,13 @@
     "url": "https://memory.vertiso.ai"
   },
   "metadata": {
-    "description": "Vertiso plugin marketplace for Claude Code."
+    "description": "Vertiso plugin marketplace for Claude."
   },
   "plugins": [
     {
       "name": "vertiso-memory",
       "source": "./vertiso-memory",
-      "description": "Portable, user-owned memory for Claude Code: durable recall and hybrid search, cross-session handoffs and checkpoints, through a remote OAuth MCP server, with the vmem session skills bundled. Available worldwide except where prohibited by applicable law or unsupported by our service providers.",
+      "description": "Portable, user-owned memory for Claude. Durable recall, hybrid search, and cross-session handoffs and checkpoints through a remote OAuth MCP server, with the vmem session skills bundled. Available worldwide except where prohibited by applicable law or unsupported by our service providers.",
       "category": "productivity",
       "keywords": [
         "memory",

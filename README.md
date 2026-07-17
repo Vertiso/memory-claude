@@ -1,29 +1,53 @@
-# Vertiso Memory for Claude Code
+# Vertiso Memory for Claude
 
-Official Claude Code plugin for Vertiso Memory: one-step install of the remote,
-user-owned memory MCP server plus the session skills. Durable recall, hybrid
-search, and cross-session handoffs and checkpoints, with browser OAuth and no
-API key to paste.
+Official plugin for Claude.ai web, Claude Desktop, and Claude Code CLI: one
+install of the remote, user-owned Vertiso Memory MCP server plus the session
+skills. Durable recall, hybrid search, and cross-session handoffs and
+checkpoints, with browser OAuth and no API key to paste.
 
-## Install
+## Install the complete plugin
+
+For Claude.ai web chat, Claude Desktop Chat, and Cowork, add Vertiso's public
+plugin marketplace:
+
+```text
+Customize → Plugins → Personal plugins → + → Add marketplace
+Choose Add from a repository
+Repository: https://github.com/Vertiso/memory-claude
+Sync, open Vertiso Memory, then select Install
+```
+
+This installs the remote MCP server and the four session skills (`checkpoint`,
+`handoff`, `handoff-resume`, and `wrap-up`, namespaced as
+`/vertiso-memory:<skill>`).
+
+## Claude Desktop
+
+Claude Desktop is the unified app with Chat, Cowork, and Code tabs. The plugin
+above works in Chat and Cowork.
+
+In the Code tab, select **+ → Plugins → Add plugin**, then install Vertiso
+Memory from the configured marketplace.
+
+## Claude Code CLI
+
+Install the same plugin from the terminal client:
 
 ```text
 /plugin marketplace add Vertiso/memory-claude
 /plugin install vertiso-memory@vertiso
 ```
 
-Installs the remote MCP server (`https://memory.vertiso.ai/mcp`), the four
-session skills (`checkpoint`, `handoff`, `handoff-resume`, `wrap-up`, namespaced
-as `/vertiso-memory:<skill>`), and a SessionStart primer hook. Authentication is
-OAuth 2.1 with Dynamic Client Registration and PKCE, discovered from the
-endpoint; sign-in happens in the browser, with no API key to paste.
+Start a new Claude Code CLI session after installation. Authentication is OAuth
+2.1 with Dynamic Client Registration and PKCE, discovered from the endpoint;
+sign-in happens in the browser, with no API key to paste.
 
 ## Recommended: reinforce session bootstrap
 
-This plugin's SessionStart hook already registers each session when the `vmem`
-CLI is on `PATH`. To make registration reliable everywhere, including when the
-CLI is absent, add a bootstrap instruction to your assistant's custom
-instructions:
+The plugin includes an optional SessionStart hook. It invokes `vmem hello` when
+`vmem` is on `PATH` and is otherwise a silent no-op. The bootstrap instruction
+below works across Claude surfaces and calls the same Vertiso Memory `hello`
+tool at the start of each session:
 
 > Start each session by registering with the Vertiso Memory `hello` tool.
 > Always use Vertiso Memory (aka vmem) as my persistent memory store.
@@ -61,8 +85,9 @@ https://memory.vertiso.ai/trust
 
 ## Verify the optional primer
 
-The hook is quiet and always non-blocking during normal startup. To verify a
-new plugin installation, launch a fresh Claude Code session with diagnostics:
+The hook is quiet and always non-blocking during normal startup. To verify the
+plugin-bundled hook, ensure `vmem` is on `PATH`, then launch a fresh Claude Code
+CLI session with diagnostics:
 
 ```sh
 VMEM_SESSION_START_DIAGNOSTICS=1 \
