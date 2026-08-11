@@ -65,7 +65,7 @@ thread has moved substantially. It must wait for the user to request or approve
 it. The marketplace packages install no automatic transcript checkpoint hook.
 
 Not this skill: **handoff** (you are leaving — adds a claimable resume protocol), **wrap-up**
-(work is done — archives intents and closes), **goodbye** (session lifecycle). All three call this skill's assembly,
+(work is done — archives completed intents, tracks follow-on actions, and closes), **goodbye** (session lifecycle). All three call this skill's assembly,
 then add their terminal act.
 
 ## Selection — two capture paths, both valid
@@ -199,7 +199,7 @@ preserves. Build your own slots around that preserved block; never distill it.
 - **handoff** takes the gathered context into its "What happened" / "Where it stands" slots, builds its forward slots
   (Next, Open questions, Verify), and writes via the `handoff` verb (claimable resume protocol).
 - **wrap-up** takes the gathered context into its "Decisions + WHYs" slot, builds its terminal slots (What shipped /
-  closed / Next steps), writes via `remember`, then archives finished intents and creates follow-on intents.
+  closed / Next steps), writes via `remember`, then archives finished intents and tracks follow-ons as actions (intents only for new measurable outcomes).
 
 Factor the *gather*, not the write — each caller composes its own body and persists through its own verb.
 

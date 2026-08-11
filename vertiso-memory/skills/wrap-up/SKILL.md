@@ -10,8 +10,9 @@ description: >-
 # Wrap-up
 
 Close out a finished session: archive the completed work in Vertiso Memory,
-journal the stable state, and ensure every deferred follow-on has a tracked
-vmem intent.
+journal the stable state, and ensure every deferred follow-on is tracked —
+as a vmem ACTION (a concrete piece of work) or, for a measurable outcome to
+achieve or maintain, an intent.
 
 **Announce:** "Using the wrap-up skill to close out this session."
 
@@ -22,13 +23,14 @@ agent's offer to run it, authorizes one capture. Invocation authorizes the
 wrap-up memory and its checkpoint-backed transcript gathering, including
 selected attributed verbatim excerpts sent to Vertiso Memory. Once invoked, do
 not ask a second permission question for that capture. It does not authorize
-creating or archiving intents; those additional mutations retain the explicit
-confirmation step below.
+creating or archiving actions or intents; those additional mutations retain
+the explicit confirmation step below.
 
 Do not ask whether to write the wrap-up memory; the user's invocation already
-authorized it. When intent candidates exist, ask only whether to create or
-archive those named intents, and state that the wrap-up memory will be written
-regardless. If both intent lists are empty, proceed without another question.
+authorized it. When follow-on candidates exist, ask only whether to create or
+archive those named actions/intents, and state that the wrap-up memory will
+be written regardless. If both lists are empty, proceed without another
+question.
 
 One invocation does not grant standing authorization for later wrap-ups. Omit
 and do not persist passwords, API keys, authentication tokens, payment
@@ -85,19 +87,22 @@ meaningless, stop and ask the user for a sanitized replacement.
    witnessed completion event (PR merged AND the intent's full scope shipped,
    ticket resolved, user confirmation) → propose archive. Partially shipped or
    broader-scope → do not. Uncertain → ask, don't guess.
-3. **Resolve next-step linkage.** For each slot-7 item: link an existing intent
-   if one matches; if none exists and the item is concrete, actionable, and
-   beyond a single session, propose a new intent. Transient items (one-off
-   cleanup, naming fixes) get an inline `[transient]` annotation instead of an
-   intent.
-4. **Confirm before intent mutations.** Show the user the proposed new-intent
-   list (title + one-line description each) and candidate archive list
-   (one-line rationale each), then wait for explicit go-ahead; the user may
-   pick a subset. If both lists are empty, no additional confirmation is
-   needed. Frame this as confirmation only for the named intent changes, not
-   for the wrap-up. Never create or archive intents without confirmation;
-   invocation already authorized the wrap-up memory itself.
-5. **Create the confirmed intents** via `remember(type: "intent", ...)`,
+3. **Resolve next-step linkage.** For each slot-7 item: link an existing
+   intent or open action if one matches. If none exists, propose a new
+   **ACTION** (`remember(type: "action", ...)`) — a concrete piece of work to
+   do. Propose a new **intent** ONLY for a measurable outcome to achieve or
+   maintain (intents are goals, not to-dos; actions are the to-dos that serve
+   them). Transient items (one-off cleanup, naming fixes) get an inline
+   `[transient]` annotation instead of a memory.
+4. **Confirm before memory mutations.** Show the user the proposed new
+   action/intent list (title + one-line description each) and candidate
+   archive list (one-line rationale each), then wait for explicit go-ahead;
+   the user may pick a subset. If both lists are empty, no additional
+   confirmation is needed. Frame this as confirmation only for the named
+   changes, not for the wrap-up. Never create or archive memories without
+   confirmation; invocation already authorized the wrap-up memory itself.
+5. **Create the confirmed follow-ons** — `remember(type: "action", ...)` for
+   work items, `remember(type: "intent", ...)` for measurable outcomes —
    capturing their IDs for slot 7.
 6. **Write the wrap-up memory** via `remember`: pass `type: "observation"` and
    `metadata: { kind: "wrap-up", scope: <the session's primary scope, a git
@@ -111,8 +116,8 @@ meaningless, stop and ask the user for a sanitized replacement.
    passing the intent `id`. `archive_memory` has no free-text reason field, so
    the close-out's traceability lives in slot 4 ("What closed") of the body
    above — it names each archived intent and the wrap-up that closed it.
-8. **Report** using the format below. Every actionable item must reach the user
-   with its intent link or its transient rationale.
+8. **Report** using the format below. Every actionable item must reach the
+   user with its action/intent link or its transient rationale.
 
 ## The body
 
@@ -144,8 +149,8 @@ shipped, What closed, Next steps — built on that context, not replaced by it.
    (linked), decisions that changed how we work, lessons captured. Not
    follow-ons — those go in slot 7.
 7. **Next steps** — actionable follow-ons. Per line:
-   `- [intent title](vertiso-memory://memories/{id}) — what to do next`. A
-   transient item not worth an intent gets a `[transient]` prefix and a reason
+   `- [action title](vertiso-memory://memories/{id}) — what to do next`. A
+   transient item not worth a memory gets a `[transient]` prefix and a reason
    instead of a link.
 
 ## Report format
@@ -155,12 +160,13 @@ shipped, What closed, Next steps — built on that context, not replaced by it.
 
 - **Wrap-up memory**: vmem #{id}
 - **Intents archived**: {count} — {#id (title), …, or "none"}
+- **Actions created**: {count} — {#id (title), …, or "none"}
 - **Intents created**: {count} — {#id (title), …, or "none"}
 
 ## Next steps ({n})
 
 1. [title](vertiso-memory://memories/{id}) — {what to do}
-2. [transient] {item} — {why no intent}
+2. [transient] {item} — {why no tracked memory}
 ```
 
 Every slot-7 item appears here with its intent link or its transient rationale.

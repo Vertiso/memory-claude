@@ -2,6 +2,13 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.1.0 — 2026-08-05
+
+- Teach the wrap-up skill to record durable follow-ons as actions instead of new
+  intents.
+- Reserve new-intent proposals for measurable outcomes to achieve or maintain.
+- Refresh checkpoint skill references to the intents-and-actions work model.
+
 ## 1.0.0 — 2026-07-12
 
 - Repair Codex marketplace discovery and document the complete install flow.
