@@ -2,6 +2,17 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.1.1 — 2026-08-21
+
+- Audit touched actions, intents, and projects for witnessed completion at
+  wrap-up.
+- Complete finished actions with complete_action; archive finished intents and
+  projects with explicit completion.
+- Keep a project active while any in-scope work remains open, closing only its
+  finished children.
+- Report actions completed and projects archived alongside intents archived.
+- Refresh checkpoint skill references to the full closure set.
+
 ## 1.1.0 — 2026-08-05
 
 - Teach the wrap-up skill to record durable follow-ons as actions instead of new
