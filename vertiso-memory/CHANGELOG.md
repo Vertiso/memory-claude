@@ -2,6 +2,18 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.2.0 — 2026-08-28
+
+- Lead the hello primer with user_agent_instructions and pinned standing rules.
+- Replace the primer's static contract with the vertiso-memory://contract
+  resource.
+- Ship count-honest intent and action indexes with overdue and undated tallies.
+- Inherit user-asserted root tags onto fragments as deterministic taggings, so
+  each rule carries its tags.
+- Reuse a just-started agent session instead of minting one per hello,
+  collapsing double-fired SessionStart hooks.
+- Stamp primer_version: 2 so clients can detect the new shape.
+
 ## 1.1.1 — 2026-08-21
 
 - Audit touched actions, intents, and projects for witnessed completion at
