@@ -2,6 +2,16 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.3.0 — 2026-08-28
+
+- Add include: ["constraints"] to recall — task-scoped rule rows in the same
+  call as context.
+- Add synthesis: false to recall — retrieval facts only, answer omitted,
+  confidence "none".
+- Declare the constraints section and its row shape in recall's output schema.
+- Teach the one-shot in the hello primer's constraints pointer.
+- vmem recall gains --constraints and --no-synthesis.
+
 ## 1.2.0 — 2026-08-28
 
 - Lead the hello primer with user_agent_instructions and pinned standing rules.
