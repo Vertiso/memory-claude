@@ -2,6 +2,10 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.3.1 — 2026-09-30
+
+- Use 'skip the CSV report' in the wrap-up example across all plugin packages.
+
 ## 1.3.0 — 2026-08-28
 
 - Add include: ["constraints"] to recall — task-scoped rule rows in the same

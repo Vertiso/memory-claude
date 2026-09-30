@@ -206,9 +206,9 @@ shipped, What closed, Next steps — built on that context, not replaced by it.
    e.g. "complete action #4960 — PR #147 merged"; "archive intent #4954 —
    AiCall + CostRate live in production, full scope shipped"); an
    abandonment carries the user's words that retired it, never a completion
-   event (e.g. "abandon action #4971 — user: 'we're not doing the CSV
-   export'"). One line each. A project listed here as completed means
-   nothing in its scope remains open.
+   event (e.g. "abandon action #4971 — user: 'skip the CSV report'").
+   One line each. A project listed here as completed means nothing in its
+   scope remains open.
 5. **Stable state** — the state of the world after this session: what's live /
    final / in-flight, and the equivalent for the domain (deployed and on
    `main`; or published / signed / shipped / still pending), what assumptions
