@@ -9,6 +9,11 @@
     "url": "https://memory.vertiso.ai"
   },
   "homepage": "https://memory.vertiso.ai/docs/install",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://memory.vertiso.ai/docs/install",
+  "supportUrl": "https://memory.vertiso.ai/support",
+  "privacyPolicyUrl": "https://memory.vertiso.ai/privacy-policy",
+  "termsOfServiceUrl": "https://memory.vertiso.ai/terms-of-service",
   "repository": "https://github.com/Vertiso/memory-claude",
   "license": "MIT",
   "keywords": [

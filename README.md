@@ -44,10 +44,10 @@ sign-in happens in the browser, with no API key to paste.
 
 ## Recommended: reinforce session bootstrap
 
-The plugin includes an optional SessionStart hook. It invokes `vmem hello` when
-`vmem` is on `PATH` and is otherwise a silent no-op. The bootstrap instruction
-below works across Claude surfaces and calls the same Vertiso Memory `hello`
-tool at the start of each session:
+The marketplace plugin does not install a SessionStart hook or run the local
+`vmem` CLI. Add the bootstrap instruction below to your Claude instructions.
+It asks Claude to call the Vertiso Memory `hello` tool through MCP at the start
+of each session:
 
 <!-- BEGIN bootstrap-instruction -->
 > Vertiso Memory (vmem) is my persistent memory across every tool and session.
@@ -88,39 +88,18 @@ https://memory.vertiso.ai/trust
 
 ## Requirements
 
-- The **MCP server and skills work on their own** — no local binary needed.
-- The optional **SessionStart hook** calls the `vmem` CLI if it is on `PATH`
-  (see the [CLI installation options](https://memory.vertiso.ai/docs/install)).
-  Without the CLI the hook is a silent no-op; memory still works through the
-  MCP server and the `hello` tool.
+The **MCP server and skills work on their own**. No local binary is needed.
+Sign in through the browser when Claude requests authorization.
 
-## Verify the optional primer
+## Verify the primer
 
-The hook is quiet and always non-blocking during normal startup. To verify the
-plugin-bundled hook, ensure `vmem` is on `PATH`, then launch a fresh Claude Code
-CLI session with diagnostics:
+Start a new session and ask Claude to call the Vertiso Memory `hello` tool.
+Check that it returns your startup primer. The bootstrap instruction above
+requests this call for each new session. The plugin has no automatic startup
+hook, so the call depends on Claude following that instruction.
 
-```sh
-VMEM_SESSION_START_DIAGNOSTICS=1 \
-  claude --debug-file /tmp/vertiso-memory-session-start.log
-```
-
-After the session starts, inspect the known log path from another terminal:
-
-```sh
-grep "Vertiso Memory SessionStart diagnostics" \
-  /tmp/vertiso-memory-session-start.log
-```
-
-The hook reports one of three outcomes in the debug log:
-
-- `attempted: vmem hello succeeded` verifies that the primer ran.
-- `skipped: vmem was not found on PATH` means the optional CLI is absent.
-- `attempted: vmem hello failed (exit N)` distinguishes an authentication,
-  network, or service failure from the absent-CLI case.
-
-Diagnostics do not change startup behavior: every outcome remains
-non-blocking, and the MCP server remains available when the CLI is absent.
+If you previously used the plugin's optional CLI hook, this package no longer
+runs it. An existing CLI-installed hook remains separate from the plugin.
 
 ## Availability
 
