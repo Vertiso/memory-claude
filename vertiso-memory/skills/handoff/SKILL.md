@@ -14,6 +14,9 @@ Write a structured session handoff so the work can be picked up cleanly — in t
 
 **Announce:** "Using the handoff skill to save selected session context to Vertiso Memory."
 
+**CLI fallback:** when you call vmem through the `vmem` CLI instead of the MCP tools, run it as
+`vmem --agent claude-code <command>`, so your writes are attributed to this client.
+
 ## Consent boundary
 
 Invoking this skill at the user's request, or affirmatively accepting an
@@ -61,9 +64,9 @@ meaningless, stop and ask the user for a sanitized replacement.
 2. **Compose handoff's own body** (below), building the forward slots — Next, Open questions, Verify —
    ON TOP of that gathered context. Distinguish what was *done* from what was *told* or *believed*; record an approval
    or decision only if witnessed this session, dated and attributed.
-3. **Call the `handoff` verb** — the `handoff` MCP tool, or `vmem handoff` — with the composed body and an
-   agent-supplied `scope` (a git branch for a coding session, a project name, or none). This is handoff's terminal act:
-   it writes the record AND marks it claimable so `handoff_resume` can pick it up.
+3. **Call the `handoff` verb** — the `handoff` MCP tool, or `vmem --agent claude-code handoff` — with the
+   composed body and an agent-supplied `scope` (a git branch for a coding session, a project name, or none). This is
+   handoff's terminal act: it writes the record AND marks it claimable so `handoff_resume` can pick it up.
 4. **Report** the new handoff id to the user.
 
 ## The six-slot body

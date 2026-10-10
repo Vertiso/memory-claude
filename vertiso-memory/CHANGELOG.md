@@ -2,6 +2,22 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.3.2 — 2026-10-09
+
+- Return hello_version 2 from hello: connection ({id, name}, or null) replaces
+  agent, REST hello no longer returns session_token, and the name input is
+  ignored.
+- Author each write by the connection that made it, or by you; a client can no
+  longer choose or rename its author.
+- Teach each skill's CLI fallback to run vmem --agent CLIENT COMMAND, with the
+  client filled in per package; update vmem first (curl -fsSL
+  https://memory.vertiso.ai/install.sh | sh), because older builds reject
+  --agent.
+- vmem mcp install creates a named connection for each client it sets up on the
+  vmem bridge (not JetBrains); every vmem command accepts --agent.
+- Build the VS Code extension with @vscode/vsce 4.0.0 (build tool only; no
+  runtime change).
+
 ## 1.3.1 — 2026-09-30
 
 - Use 'skip the CSV report' in the wrap-up example across all plugin packages.

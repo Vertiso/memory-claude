@@ -18,6 +18,9 @@ measurable outcome to achieve or maintain, an intent.
 
 **Announce:** "Using the wrap-up skill to close out this session."
 
+**CLI fallback:** when you call vmem through the `vmem` CLI instead of the MCP tools, run it as
+`vmem --agent claude-code <command>`, so your writes are attributed to this client.
+
 ## Consent boundary
 
 Invoking this skill at the user's request, or affirmatively accepting an

@@ -12,6 +12,9 @@ Resume a prior session from a handoff — verifying before operating.
 
 **Announce:** "Using the handoff-resume skill to pick up a prior session."
 
+**CLI fallback:** when you call vmem through the `vmem` CLI instead of the MCP tools, run it as
+`vmem --agent claude-code <command>`, so your writes are attributed to this client.
+
 ## When to use
 
 - The user runs `/handoff-resume`.
@@ -19,7 +22,7 @@ Resume a prior session from a handoff — verifying before operating.
 
 ## Procedure
 
-1. **Call `handoff_resume`** (the MCP tool, or `vmem handoff-resume`) with no
+1. **Call `handoff_resume`** (the MCP tool, or `vmem --agent claude-code handoff-resume`) with no
    `claim` argument — this returns the live set of open handoffs.
 2. **Branch on the count:**
    - **0** — nothing to resume; stop here.
