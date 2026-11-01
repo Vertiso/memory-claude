@@ -52,8 +52,9 @@ of each session:
 <!-- BEGIN bootstrap-instruction -->
 > Vertiso Memory (vmem) is my persistent memory across every tool and session.
 >
-> - Call the `hello` tool at the start of every session. Treat its primer
->   as authoritative context, not a suggestion.
+> - Call the `hello` tool at the start of every session. If the vmem tools
+>   are deferred, load them first, then call `hello`. Treat its primer as
+>   authoritative context, not a suggestion.
 > - `recall` before planning or answering anything that may depend on
 >   earlier context. Look it up instead of asking me to repeat it.
 > - `remember` durable decisions, preferences, constraints, and project
