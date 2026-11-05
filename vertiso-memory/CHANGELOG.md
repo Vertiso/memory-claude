@@ -2,6 +2,20 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.4.0 — 2026-11-04
+
+- Add the blocked status: complete_action takes status blocked with a required
+  needs line saying what the agent needs from you.
+- Add vmem block ID --needs TEXT, the CLI form of the same write.
+- List blocked work in hello as waiting_on_you, each item with what it needs;
+  vmem hello prints it as Waiting on you.
+- Return open work by default from list_actions, GET /v1/actions, and vmem
+  actions: open, blocked, and in_progress. Pass work or status for suggested,
+  parked, or closed actions. overdue, undated, and older_than keep their own row
+  sets.
+- Add status_changed_by (user, the agent's source, or a job's label) and
+  needs_from_user to every action result.
+
 ## 1.3.2 — 2026-10-09
 
 - Return hello_version 2 from hello: connection ({id, name}, or null) replaces
