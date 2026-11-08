@@ -2,6 +2,21 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.5.0 — 2026-11-07
+
+- Start an action found in a memory not typed action as suggested; an action in
+  a memory typed action opens directly. Changing a memory's type to action opens
+  its suggested actions.
+- Leave expired suggested actions and closed actions older than your Settings
+  windows out of list_actions, GET /v1/actions, and vmem actions; nothing is
+  deleted.
+- Add suggested_within_days, closed_within_days, and include_expired to
+  list_actions and GET /v1/actions, and --suggested-within-days,
+  --closed-within-days, and --include-expired to vmem actions.
+- Retire parking: hello no longer returns a parked count, and work parked and
+  vmem actions --parked are accepted and ignored until 1.6.0 removes them.
+  purge_actions deletes closed actions only.
+
 ## 1.4.0 — 2026-11-04
 
 - Add the blocked status: complete_action takes status blocked with a required
